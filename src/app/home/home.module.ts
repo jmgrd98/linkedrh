@@ -1,3 +1,4 @@
+import { ToastComponent } from './../components/toast/toast.component';
 import { ApiService } from 'src/app/services/api.service';
 import { LoadingComponent } from './../components/header//loading/loading.component';
 import { NgModule } from '@angular/core';
@@ -18,13 +19,14 @@ import { ProfileSummaryComponent } from '../components/profile-summary/profile-s
     IonicModule,
     HomePageRoutingModule
   ],
-  // providers: [ApiService],
+  providers: [ApiService],
   declarations: [
     HomePage,
     HeaderComponent,
     AccordionComponent,
     ProfileSummaryComponent,
-    LoadingComponent
+    LoadingComponent,
+    ToastComponent,
   ]
 })
 export class HomePageModule {}

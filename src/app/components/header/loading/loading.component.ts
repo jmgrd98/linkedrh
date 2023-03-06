@@ -1,3 +1,4 @@
+import { ToastComponent } from './../../toast/toast.component';
 import { ApiService } from 'src/app/services/api.service';
 import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
@@ -15,6 +16,7 @@ export class LoadingComponent {
   constructor(
     private loadingCtrl: LoadingController,
     public apiService: ApiService,
+    public toast: ToastComponent,
     ) {}
 
     getRandomUser() {
@@ -39,5 +41,6 @@ export class LoadingComponent {
     }, loading.duration)
 
     this.getRandomUser();
+    this.toast.presentToast('bottom');
   }
 }
