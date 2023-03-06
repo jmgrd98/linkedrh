@@ -10,6 +10,7 @@ export class ProfileSummaryComponent  implements OnInit {
 
   firstUser: any;
   randomUser: any;
+  users: any = [];
   sections: any = [];
 
   constructor(private apiService: ApiService) {
@@ -20,16 +21,19 @@ export class ProfileSummaryComponent  implements OnInit {
 
   getFirstUser() {
     this.apiService.getFirstUserObject().subscribe(user => {
-      this.firstUser = user;
-      this.sections.push(this.firstUser);
+      // this.firstUser = user;
+      // this.users.push(this.firstUser);
+      console.log(this.users);
     });
-    return this.sections.push(this.firstUser);
+    // return this.users.push(this.firstUser);
   }
 
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
       this.randomUser = user;
+      this.users.push(this.randomUser);
+      console.log(this.users);
     })
-    return this.sections.push(this.randomUser);
+    return this.users.push(this.randomUser);
   }
 }

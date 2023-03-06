@@ -8,6 +8,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class LoadingComponent {
 
+  users: any = [];
   sections: any = [];
   user: any;
 
@@ -20,7 +21,6 @@ export class LoadingComponent {
       this.apiService.getRandomUserObject().subscribe(user => {
         this.user = user;
       })
-      return this.sections.push(this.user);
     }
 
   async refresh() {
@@ -31,7 +31,11 @@ export class LoadingComponent {
     await loading.present();
 
     setTimeout(() => {
+      const lengthBefore = this.users.length;
       location.reload();
+      if (this.users.length > lengthBefore) {
+        this.getRandomUser();
+      }
     }, loading.duration)
 
     this.getRandomUser();

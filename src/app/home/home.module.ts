@@ -18,7 +18,7 @@ import { ProfileSummaryComponent } from '../components/profile-summary/profile-s
     IonicModule,
     HomePageRoutingModule
   ],
-  providers: [ApiService],
+  // providers: [ApiService],
   declarations: [
     HomePage,
     HeaderComponent,
