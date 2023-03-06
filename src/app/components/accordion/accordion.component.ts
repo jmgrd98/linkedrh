@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,8 +12,13 @@ export class AccordionComponent  implements OnInit {
   baseUrl: string = 'https://randomuser.me/api'
   employeeName: string = this.baseUrl
 
-  constructor() { }
+  constructor(private apiService: ApiService) {
+    this.getUser();
+  }
 
   ngOnInit() {}
 
+  getUser() {
+    this.apiService.getFirstUser()
+  }
 }
