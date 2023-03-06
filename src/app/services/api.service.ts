@@ -8,6 +8,10 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  getFirstUser(){
+    let firstUser = 
+  }
+
   getRandomUser() {
     let baseUrl = 'https://randomuser.me/api';
   }
