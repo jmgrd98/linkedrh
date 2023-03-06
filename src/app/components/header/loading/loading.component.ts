@@ -14,7 +14,10 @@ export class LoadingComponent {
       message: 'Atualizando o aplicativo em 5 segundos...',
       duration: 5000,
     });
+    await loading.present();
 
-    loading.present();
+    setTimeout(() => {
+      location.reload();
+    }, loading.duration)
   }
 }
