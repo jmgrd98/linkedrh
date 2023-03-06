@@ -1,3 +1,4 @@
+import { LoadingComponent } from './../components/header//loading/loading.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -20,7 +21,8 @@ import { ProfileSummaryComponent } from '../components/profile-summary/profile-s
     HomePage,
     HeaderComponent,
     AccordionComponent,
-    ProfileSummaryComponent
+    ProfileSummaryComponent,
+    LoadingComponent
   ]
 })
 export class HomePageModule {}

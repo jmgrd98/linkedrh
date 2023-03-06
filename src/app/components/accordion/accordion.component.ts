@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionComponent  implements OnInit {
 
+
+  baseUrl: string = 'https://randomuser.me/api'
+  employeeName: string = this.baseUrl
+
   constructor() { }
 
   ngOnInit() {}
