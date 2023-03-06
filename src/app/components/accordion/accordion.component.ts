@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionComponent  implements OnInit {
 
-  // user: string;
-  baseUrl: string = 'https://randomuser.me/api';
+  sections: any = [];
 
   constructor(private apiService: ApiService) {
     this.getUser();
@@ -18,6 +17,6 @@ export class AccordionComponent  implements OnInit {
   ngOnInit() {}
 
   getUser() {
-    return this.apiService.getRandomUser();
+    return this.sections.push(this.apiService.getRandomUser());
   }
 }

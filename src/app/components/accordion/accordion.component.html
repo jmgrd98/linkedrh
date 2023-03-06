@@ -1,11 +1,11 @@
 <ion-accordion-group>
-  <ion-accordion value="first">
+  <ion-accordion value="first" *ngFor="let section of sections">
     <ion-item slot="header" color="light">
       <ion-label>Dados de identificação</ion-label>
     </ion-item>
     <div class="ion-padding" slot="content">
       <p>Admissão na empresa</p>
-      <span>20/11/1995 (27 anos e 3 meses) {{baseUrl}}</span>
+      <span>20/11/1995 (27 anos e 3 meses)</span>
       <p>Data de nascimento</p>
       <span>23/04/1966 (56 anos)</span>
       <p>Celular</p>
@@ -14,7 +14,7 @@
       <span>mariza.gimene@joinrh.com.br</span>
     </div>
   </ion-accordion>
-  <ion-accordion value="second">
+  <!-- <ion-accordion value="second">
     <ion-item slot="header" color="light">
       <ion-label>Cursos</ion-label>
     </ion-item>
@@ -45,5 +45,5 @@
     <div class="ion-padding" slot="content">
       Histórico profissional
     </div>
-  </ion-accordion>
+  </ion-accordion> -->
 </ion-accordion-group>
