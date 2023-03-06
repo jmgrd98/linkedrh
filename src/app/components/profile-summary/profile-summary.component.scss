@@ -12,13 +12,14 @@
 }
 
 ion-avatar{
-    position: absolute;
-    top: 10%;
+    position: relative;
+    bottom: 70px;
     width: 100px;
     height: 100px;
 }
 
 h2{
+    margin-top: 0;
     font-size: 1.5rem;
     font-weight: 700;
 }
