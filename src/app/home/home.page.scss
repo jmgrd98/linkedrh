@@ -1,9 +1,9 @@
 .content-container{
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url('./city.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-color: rgb(207, 207, 207);
+  align-items: center;
+  justify-content: center;
 }
