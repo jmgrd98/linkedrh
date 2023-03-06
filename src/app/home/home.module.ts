@@ -1,3 +1,4 @@
+import { ApiService } from 'src/app/services/api.service';
 import { LoadingComponent } from './../components/header//loading/loading.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,7 @@ import { ProfileSummaryComponent } from '../components/profile-summary/profile-s
     IonicModule,
     HomePageRoutingModule
   ],
+  providers: [ApiService],
   declarations: [
     HomePage,
     HeaderComponent,

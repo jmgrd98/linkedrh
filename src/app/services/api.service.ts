@@ -20,6 +20,12 @@ export class ApiService {
     );
   }
 
+  getFirstUserObject(): Observable<any> {
+    return this.getFirstUser().pipe(
+      map(response => response.results[0])
+    );
+  }
+
   getRandomUser(): Observable<any> {
     return this.http.get(this.baseUrlRandomUser);
   }

@@ -8,20 +8,28 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProfileSummaryComponent  implements OnInit {
 
-  user: any;
+  firstUser: any;
+  randomUser: any;
   sections: any = [];
 
   constructor(private apiService: ApiService) {
-    this.getUser();
+    this.getRandomUser();
   }
 
   ngOnInit() {}
 
-  getUser() {
-    this.apiService.getRandomUserObject().subscribe(user => {
-      this.user = user;
-    })
-    return this.sections.push(this.user);
+  getFirstUser() {
+    this.apiService.getFirstUserObject().subscribe(user => {
+      this.firstUser = user;
+      this.sections.push(this.firstUser);
+    });
+    return this.sections.push(this.firstUser);
   }
 
+  getRandomUser() {
+    this.apiService.getRandomUserObject().subscribe(user => {
+      this.randomUser = user;
+    })
+    return this.sections.push(this.randomUser);
+  }
 }

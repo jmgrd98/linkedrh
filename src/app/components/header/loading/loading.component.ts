@@ -1,5 +1,5 @@
+import { ApiService } from 'src/app/services/api.service';
 import { Component } from '@angular/core';
-
 import { LoadingController } from '@ionic/angular';
 
 @Component({
@@ -7,7 +7,21 @@ import { LoadingController } from '@ionic/angular';
   templateUrl: 'loading.component.html',
 })
 export class LoadingComponent {
-  constructor(private loadingCtrl: LoadingController) {}
+
+  sections: any = [];
+  user: any;
+
+  constructor(
+    private loadingCtrl: LoadingController,
+    public apiService: ApiService,
+    ) {}
+
+    getRandomUser() {
+      this.apiService.getRandomUserObject().subscribe(user => {
+        this.user = user;
+      })
+      return this.sections.push(this.user);
+    }
 
   async refresh() {
     const loading = await this.loadingCtrl.create({
@@ -19,5 +33,7 @@ export class LoadingComponent {
     setTimeout(() => {
       location.reload();
     }, loading.duration)
+
+    this.getRandomUser();
   }
 }

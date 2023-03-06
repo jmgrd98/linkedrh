@@ -17,25 +17,31 @@ import { Component, OnInit } from '@angular/core';
 export class AccordionComponent  implements OnInit {
 
   sections: any = [];
-  user: any;
+  firstUser: any;
+  randomUser: any;
 
   constructor(private apiService: ApiService) {
-    this.getFirstUser();
+    // const userString = localStorage.getItem('user');
+    // if (userString) {
+    //   this.user = JSON.parse(userString);
+    // }
+    // this.getFirstUser();
   }
 
   ngOnInit() {}
 
   getFirstUser() {
     this.apiService.getFirstUser().subscribe(user => {
-      this.user = user;
-      this.sections.push(this.user);
+      this.firstUser = user;
+      this.sections.push(this.firstUser);
+      localStorage.setItem('user', JSON.stringify(this.firstUser));
     });
   }
 
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
-      this.user = user;
+      this.randomUser = user;
     })
-    return this.sections.push(this.user);
+    return this.sections.push(this.randomUser);
   }
 }
