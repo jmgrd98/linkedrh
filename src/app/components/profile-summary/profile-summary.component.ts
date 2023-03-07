@@ -9,11 +9,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProfileSummaryComponent  implements OnInit {
 
-  // @Output() randomUserEmitter:EventEmitter<Object> = new EventEmitter();
 
-  firstUser: any;
   users: any = [];
-  sections: any = [];
   randomUser:any;
 
   constructor(private apiService: ApiService) {
