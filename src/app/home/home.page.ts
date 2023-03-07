@@ -7,12 +7,12 @@ import { Component, EventEmitter, Input } from '@angular/core';
 })
 export class HomePage {
 
-  @Input() randomUser: any;
+  randomUser: any;
 
   constructor() {}
 
   onRandomUserEmitted(){
-    
+    // this.randomUser =
   }
 
 }

@@ -34,6 +34,7 @@ export class ProfileSummaryComponent  implements OnInit {
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
       this.randomUser = user;
+      localStorage.setItem('user', JSON.stringify(this.randomUser));
       this.randomUserEmitter.emit(this.randomUser);
       console.log(this.randomUser);
     })

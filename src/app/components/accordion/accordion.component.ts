@@ -8,39 +8,34 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccordionComponent  implements OnInit {
 
-  @Input() randomUser: any;
+  // @Input() randomUser: any;
 
   users: any = [];
   sections: any = [];
   firstUser: any;
+  randomUser:any
 
   constructor(private apiService: ApiService) {
-    // const userString = localStorage.getItem('user');
-    // if (userString) {
-    //   this.user = JSON.parse(userString);
-    // }
-    // this.getFirstUser();
     this.getRandomUser();
   }
 
   ngOnInit() {
-    // console.log(this.randomUser)
+
   }
 
-  getFirstUser() {
-    this.apiService.getFirstUser().subscribe(user => {
-      this.firstUser = user;
-      this.sections.push(this.firstUser);
-      localStorage.setItem('user', JSON.stringify(this.firstUser));
-    });
-  }
+  // getFirstUser() {
+  //   this.apiService.getFirstUser().subscribe(user => {
+  //     this.firstUser = user;
+  //     this.sections.push(this.firstUser);
+  //     localStorage.setItem('user', JSON.stringify(this.firstUser));
+  //   });
+  // }
 
   getRandomUser() {
-    this.apiService.getRandomUserObject().subscribe(user => {
-      this.randomUser = user;
-      // this.users.push(this.randomUser);
-      console.log(this.randomUser);
-    })
+     this.randomUser = JSON.parse(localStorage.getItem('user'));
+     console.log(this.randomUser.email);
+    }
+    
   }
 
   // formatDate(dateString) {
@@ -51,5 +46,3 @@ export class AccordionComponent  implements OnInit {
   //   return `${day}/${month}/${year}`;
   // }
 
-  
-}
