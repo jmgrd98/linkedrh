@@ -11,20 +11,20 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrlFirstUser = 'https://localhost:3000/payload';
-  private baseUrlRandomUser = 'https://randomuser.me/api';
+  public baseUrlFirstUser = 'http://localhost:3000/payload';
+  public baseUrlRandomUser = 'https://randomuser.me/api';
 
-  // getFirstUser(): Observable<any> {
-  //   return this.http.get<any[]>(this.baseUrlFirstUser).pipe(
-  //     map(users => users[0])
-  //   );
-  // }
+  getFirstUser(): Observable<any> {
+    return this.http.get<any[]>(this.baseUrlFirstUser).pipe(
+      map(users => users[0])
+    );
+  }
 
-  // getFirstUserObject(): Observable<any> {
-  //   return this.getFirstUser().pipe(
-  //     map(response => response.results)
-  //   );
-  // }
+  getFirstUserObject(): Observable<any> {
+    return this.getFirstUser().pipe(
+      map(response => response.results)
+    );
+  }
 
   getRandomUser(): Observable<any> {
     return this.http.get(this.baseUrlRandomUser);

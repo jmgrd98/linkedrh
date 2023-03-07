@@ -1,9 +1,10 @@
 <div class="content-container">
 <ion-avatar>
-  <img alt="Imagem de perfil" src="{{randomUser.picture.large}}" />
+  <img alt="Imagem de perfil" src="{{randomUser[0]?.picture?.large}}"/>
 </ion-avatar>
 
-  <h2>{{randomUser.name.first}} {{randomUser.name.last}}</h2>
+  <h2>{{nome}} {{lastName}}</h2>
   <h3>Software Developer</h3>
-  
 </div>
+
+<app-accordion [randomUser]="randomUser[0]"></app-accordion>

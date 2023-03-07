@@ -1,5 +1,6 @@
 import { ApiService } from './../../services/api.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 
 @Component({
   selector: 'app-accordion',
@@ -8,14 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccordionComponent  implements OnInit {
 
-  randomUser:any;
+  @Input() randomUser:any;
 
   constructor(private apiService: ApiService) {
-    this.getRandomUser();
+
   }
 
-  ngOnInit() {
 
+  ngOnInit() {
+    this.randomUser.dob.date = format(new Date(this.randomUser.dob.date), 'MM/dd/yyyy')
   }
 
   // getFirstUser() {
@@ -26,19 +28,14 @@ export class AccordionComponent  implements OnInit {
   //   });
   // }
 
-  getRandomUser() {
-    const storedUser = localStorage.getItem('users'[0]);
-    if (storedUser) {
-    this.randomUser = JSON.parse(storedUser);
-    console.log(this.randomUser.email)
-    }
-  }
-
-  // formatDate(dateString) {
-  //   const date = new Date(dateString);
-  //   const day = date.getDate().toString().padStart(2, '0');
-  //   const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  //   const year = date.getFullYear().toString();
-  //   return `${day}/${month}/${year}`;
+  // getRandomUser() {
+  //   const storedUser = localStorage.getItem('users'[0]);
+  //   if (storedUser) {
+  //   this.randomUser = JSON.parse(storedUser);
+  //   console.log(this.randomUser.email)
+  //   }
+  //
+  //   format()
   // }
+
 }

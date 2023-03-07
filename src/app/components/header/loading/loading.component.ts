@@ -1,6 +1,6 @@
 import { ToastComponent } from './../../toast/toast.component';
 import { ApiService } from 'src/app/services/api.service';
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 
 @Component({
@@ -9,9 +9,10 @@ import { LoadingController } from '@ionic/angular';
 })
 export class LoadingComponent {
 
+  @Input() randomUser: any;
+
   users: any = [];
   sections: any = [];
-  user: any;
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -20,7 +21,7 @@ export class LoadingComponent {
 
     getRandomUser() {
       this.apiService.getRandomUserObject().subscribe(user => {
-        this.user = user;
+        this.users.push = user;
       })
     }
 
