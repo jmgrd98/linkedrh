@@ -29,13 +29,4 @@ export class AccordionComponent  implements OnInit {
     });
   }
 
-  // getRandomUser() {
-  //   const storedUser = localStorage.getItem('users'[0]);
-  //   if (storedUser) {
-  //   this.randomUser = JSON.parse(storedUser);
-  //   console.log(this.randomUser.email)
-  //   }
-  //
-  // }
-
 }

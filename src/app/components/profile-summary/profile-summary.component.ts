@@ -40,12 +40,14 @@ export class ProfileSummaryComponent implements OnInit {
   }
 
   getFirstUser(){
+
     const storedUser = localStorage.getItem('firstUser');
     if (storedUser) {
       this.firstUser = JSON.parse(storedUser);
       console.log(this.firstUser);
     }
     this.job = this.firstUser.sections[0].cardItems[0].data.jobName;
+    this.nome = this.firstUser.sections[0].cardItems[0].data.employeeName;
   }
 
 
@@ -54,7 +56,7 @@ export class ProfileSummaryComponent implements OnInit {
         this.randomUser = user;
         console.log(this.randomUser);
         console.log(this.randomUser[0].name.first);
-        this.nome = this.randomUser[0].name.first;
+        // this.nome = this.randomUser[0].name.first;
         this.lastName = this.randomUser[0].name.last;
         this.users.push(this.randomUser);
         localStorage.setItem('users', JSON.stringify(this.users));
