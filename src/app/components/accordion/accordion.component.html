@@ -1,9 +1,9 @@
 <ion-accordion-group>
-  <ion-accordion value="first">
+  <ion-accordion *ngFor="let section of sections">
     <ion-item slot="header" color="light">
-      <ion-label>Dados de identificação</ion-label>
+      <ion-label>{{section.name}}</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">
+    <div *ngIf="section.expanded" class="ion-padding" slot="content">
       <p>Admissão na empresa</p>
       <span>20/11/1995 (27 anos e 3 meses)</span>
       <p>Data de nascimento</p>
@@ -13,37 +13,37 @@
       <p>E-mail</p>
       <span>{{randomUser.email}}</span>
     </div>
-  </ion-accordion>
- <ion-accordion value="second">
-    <ion-item slot="header" color="light">
-      <ion-label>Cursos</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      Cursos
-    </div>
-  </ion-accordion>
-  <ion-accordion value="third">
-    <ion-item slot="header" color="light">
-      <ion-label>Formação acadêmica</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      Formação acadêmica
-    </div>
-  </ion-accordion>
-  <ion-accordion value="fourth">
-    <ion-item slot="header" color="light">
-      <ion-label>Idiomas</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      Idiomas
-    </div>
-  </ion-accordion>
-  <ion-accordion value="fifth">
-    <ion-item slot="header" color="light">
-      <ion-label>Histórico profissional</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      Histórico profissional
-    </div>
+<!--  </ion-accordion>-->
+<!-- <ion-accordion value="second">-->
+<!--    <ion-item slot="header" color="light">-->
+<!--      <ion-label>Cursos</ion-label>-->
+<!--    </ion-item>-->
+<!--    <div class="ion-padding" slot="content">-->
+<!--      Cursos-->
+<!--    </div>-->
+<!--  </ion-accordion>-->
+<!--  <ion-accordion value="third">-->
+<!--    <ion-item slot="header" color="light">-->
+<!--      <ion-label>Formação acadêmica</ion-label>-->
+<!--    </ion-item>-->
+<!--    <div class="ion-padding" slot="content">-->
+<!--      Formação acadêmica-->
+<!--    </div>-->
+<!--  </ion-accordion>-->
+<!--  <ion-accordion value="fourth">-->
+<!--    <ion-item slot="header" color="light">-->
+<!--      <ion-label>Idiomas</ion-label>-->
+<!--    </ion-item>-->
+<!--    <div class="ion-padding" slot="content">-->
+<!--      Idiomas-->
+<!--    </div>-->
+<!--  </ion-accordion>-->
+<!--  <ion-accordion value="fifth">-->
+<!--    <ion-item slot="header" color="light">-->
+<!--      <ion-label>Histórico profissional</ion-label>-->
+<!--    </ion-item>-->
+<!--    <div class="ion-padding" slot="content">-->
+<!--      Histórico profissional-->
+<!--    </div>-->
   </ion-accordion>
 </ion-accordion-group>

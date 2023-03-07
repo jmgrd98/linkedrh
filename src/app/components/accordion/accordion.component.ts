@@ -10,23 +10,25 @@ import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 export class AccordionComponent  implements OnInit {
 
   @Input() randomUser:any;
+  firstUser: any;
+  users: any = [];
+  sections: any = [];
 
-  constructor(private apiService: ApiService) {
-
-  }
+  constructor(private apiService: ApiService) {}
 
 
   ngOnInit() {
-    this.randomUser.dob.date = format(new Date(this.randomUser.dob.date), 'MM/dd/yyyy')
+    this.randomUser.dob.date = format(new Date(this.randomUser.dob.date), 'MM/dd/yyyy');
+    this.getFirstUser();
   }
 
-  // getFirstUser() {
-  //   this.apiService.getFirstUser().subscribe(user => {
-  //     this.firstUser = user;
-  //     this.sections.push(this.firstUser);
-  //     localStorage.setItem('user', JSON.stringify(this.firstUser));
-  //   });
-  // }
+  getFirstUser() {
+    this.apiService.getFirstUser().subscribe(user => {
+      this.firstUser = user;
+      this.sections = this.firstUser.sections;
+      localStorage.setItem('firstUser', JSON.stringify(this.firstUser));
+    });
+  }
 
   // getRandomUser() {
   //   const storedUser = localStorage.getItem('users'[0]);
@@ -35,7 +37,6 @@ export class AccordionComponent  implements OnInit {
   //   console.log(this.randomUser.email)
   //   }
   //
-  //   format()
   // }
 
 }
