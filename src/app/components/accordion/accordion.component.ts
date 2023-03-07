@@ -26,7 +26,6 @@ export class AccordionComponent  implements OnInit {
     this.apiService.getFirstUser().subscribe(user => {
       this.firstUser = user;
       this.sections = this.firstUser.sections;
-      localStorage.setItem('firstUser', JSON.stringify(this.firstUser));
     });
   }
 

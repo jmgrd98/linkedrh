@@ -19,23 +19,33 @@ export class ProfileSummaryComponent implements OnInit {
   nome: any;
   lastName: any;
   sections: any = [];
+  job: any;
 
   constructor(private apiService: ApiService, private store: Store<{ app: IUserState }>) {
-    // this.getRandomUser();
+
   }
 
   ngOnInit() {
-    this.getFirstUser();
+    this.setFirstUser();
     this.getRandomUser();
-
+    this.getFirstUser();
   }
 
-  getFirstUser() {
+  setFirstUser() {
     this.apiService.getFirstUser().subscribe(user => {
       this.firstUser = user;
       this.sections = this.firstUser.sections;
       localStorage.setItem('firstUser', JSON.stringify(this.firstUser));
     });
+  }
+
+  getFirstUser(){
+    const storedUser = localStorage.getItem('firstUser');
+    if (storedUser) {
+      this.firstUser = JSON.parse(storedUser);
+      console.log(this.firstUser);
+    }
+    this.job = this.firstUser.sections[0].cardItems[0].data.jobName;
   }
 
 
