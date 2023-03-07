@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input } from '@angular/core';
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,6 @@ import { Component, EventEmitter, Input } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private apiService: ApiService) {}
 
 }

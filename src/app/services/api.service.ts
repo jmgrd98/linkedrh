@@ -13,7 +13,6 @@ export class ApiService {
 
   private baseUrlFirstUser = 'https://localhost:3000/payload';
   private baseUrlRandomUser = 'https://randomuser.me/api';
-  randomUser: any;
 
   // getFirstUser(): Observable<any> {
   //   return this.http.get<any[]>(this.baseUrlFirstUser).pipe(
