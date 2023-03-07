@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +7,12 @@ import { Component, EventEmitter } from '@angular/core';
 })
 export class HomePage {
 
+  @Input() randomUser: any;
+
   constructor() {}
 
-  // onRandomUserEmitted(event: EventEmitter<any>){
-
-  // }
+  onRandomUserEmitted(){
+    
+  }
 
 }
