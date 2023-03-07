@@ -19,21 +19,19 @@ export class ProfileSummaryComponent  implements OnInit {
 
   ngOnInit() {}
 
-  getFirstUser() {
-    this.apiService.getFirstUserObject().subscribe(user => {
-      // this.firstUser = user;
-      // this.users.push(this.firstUser);
-      console.log(this.users);
-    });
-    // return this.users.push(this.firstUser);
-  }
+  // getFirstUser() {
+  //   this.apiService.getFirstUserObject().subscribe(user => {
+  //     // this.firstUser = user;
+  //     // this.users.push(this.firstUser);
+  //     // console.log(this.users);
+  //   });
+  //   // return this.users.push(this.firstUser);
+  // }
 
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
       this.randomUser = user;
-      this.users.push(this.randomUser);
-      console.log(this.users);
+      // console.log(this.users);
     })
-    return this.users.push(this.randomUser);
   }
 }

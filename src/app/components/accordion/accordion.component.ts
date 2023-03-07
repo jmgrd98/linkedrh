@@ -3,19 +3,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-accordion',
-  // template: `
-  // <div *ngIf="user">
-  //     <h2>{{ user.name.first }} {{ user.name.last }}</h2>
-  //     <p>{{ user.email }}</p>
-  //     <img [src]="user.picture.large" [alt]="user.name.first">
-  //   </div>
-  //   <button (click)="getRandomUser()">Get random user</button>
-  // `,
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss'],
 })
 export class AccordionComponent  implements OnInit {
 
+  users: any = [];
   sections: any = [];
   firstUser: any;
   randomUser: any;
@@ -26,6 +19,7 @@ export class AccordionComponent  implements OnInit {
     //   this.user = JSON.parse(userString);
     // }
     // this.getFirstUser();
+    this.getRandomUser();
   }
 
   ngOnInit() {}
@@ -41,7 +35,8 @@ export class AccordionComponent  implements OnInit {
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
       this.randomUser = user;
+      // this.users.push(this.randomUser);
+      // console.log(this.users);
     })
-    return this.sections.push(this.randomUser);
   }
 }
