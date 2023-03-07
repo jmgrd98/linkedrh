@@ -1,5 +1,5 @@
 import { ApiService } from './../../services/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-accordion',
@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionComponent  implements OnInit {
 
+  @Input() randomUser: any;
+
   users: any = [];
   sections: any = [];
   firstUser: any;
-  randomUser: any;
 
   constructor(private apiService: ApiService) {
     // const userString = localStorage.getItem('user');
@@ -22,7 +23,9 @@ export class AccordionComponent  implements OnInit {
     this.getRandomUser();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // console.log(this.randomUser)
+  }
 
   getFirstUser() {
     this.apiService.getFirstUser().subscribe(user => {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,10 +9,12 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProfileSummaryComponent  implements OnInit {
 
+  @Output() randomUserEmitter:EventEmitter<Object> = new EventEmitter();
+
   firstUser: any;
-  randomUser: any;
   users: any = [];
   sections: any = [];
+  randomUser:any = [];
 
   constructor(private apiService: ApiService) {
     this.getRandomUser();
@@ -31,7 +34,8 @@ export class ProfileSummaryComponent  implements OnInit {
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
       this.randomUser = user;
-      // console.log(this.users);
+      this.randomUserEmitter.emit(this.randomUser);
+      console.log(this.randomUser);
     })
   }
 }
