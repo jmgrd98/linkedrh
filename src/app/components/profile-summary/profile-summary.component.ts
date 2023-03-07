@@ -9,12 +9,12 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProfileSummaryComponent  implements OnInit {
 
-  @Output() randomUserEmitter:EventEmitter<Object> = new EventEmitter();
+  // @Output() randomUserEmitter:EventEmitter<Object> = new EventEmitter();
 
   firstUser: any;
   users: any = [];
   sections: any = [];
-  randomUser:any = [];
+  randomUser:any;
 
   constructor(private apiService: ApiService) {
     this.getRandomUser();
@@ -34,9 +34,12 @@ export class ProfileSummaryComponent  implements OnInit {
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
       this.randomUser = user;
-      localStorage.setItem('user', JSON.stringify(this.randomUser));
-      this.randomUserEmitter.emit(this.randomUser);
-      console.log(this.randomUser);
-    })
+      this.users.push(this.randomUser);
+      localStorage.setItem('users', JSON.stringify(this.users));
+
+      const storedUser = localStorage.getItem('users'[0]);
+      if (storedUser) {
+      this.randomUser = JSON.parse(storedUser);
+    }})
   }
 }

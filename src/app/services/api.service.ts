@@ -15,17 +15,17 @@ export class ApiService {
   private baseUrlRandomUser = 'https://randomuser.me/api';
   randomUser: any;
 
-  getFirstUser(): Observable<any> {
-    return this.http.get<any[]>(this.baseUrlFirstUser).pipe(
-      map(users => users[0])
-    );
-  }
+  // getFirstUser(): Observable<any> {
+  //   return this.http.get<any[]>(this.baseUrlFirstUser).pipe(
+  //     map(users => users[0])
+  //   );
+  // }
 
-  getFirstUserObject(): Observable<any> {
-    return this.getFirstUser().pipe(
-      map(response => response.results[0])
-    );
-  }
+  // getFirstUserObject(): Observable<any> {
+  //   return this.getFirstUser().pipe(
+  //     map(response => response.results)
+  //   );
+  // }
 
   getRandomUser(): Observable<any> {
     return this.http.get(this.baseUrlRandomUser);
@@ -33,7 +33,7 @@ export class ApiService {
 
   getRandomUserObject(): Observable<any> {
     return this.getRandomUser().pipe(
-      map(response => response.results[0])
+      map(response => response.results)
     );
 
   }

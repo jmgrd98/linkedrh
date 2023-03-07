@@ -8,12 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccordionComponent  implements OnInit {
 
-  // @Input() randomUser: any;
-
-  users: any = [];
-  sections: any = [];
-  firstUser: any;
-  randomUser:any
+  randomUser:any;
 
   constructor(private apiService: ApiService) {
     this.getRandomUser();
@@ -32,10 +27,11 @@ export class AccordionComponent  implements OnInit {
   // }
 
   getRandomUser() {
-     this.randomUser = JSON.parse(localStorage.getItem('user'));
-     console.log(this.randomUser.email);
+    const storedUser = localStorage.getItem('users'[0]);
+    if (storedUser) {
+    this.randomUser = JSON.parse(storedUser);
+    console.log(this.randomUser.email)
     }
-    
   }
 
   // formatDate(dateString) {
@@ -45,4 +41,4 @@ export class AccordionComponent  implements OnInit {
   //   const year = date.getFullYear().toString();
   //   return `${day}/${month}/${year}`;
   // }
-
+}
