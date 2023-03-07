@@ -36,7 +36,17 @@ export class AccordionComponent  implements OnInit {
     this.apiService.getRandomUserObject().subscribe(user => {
       this.randomUser = user;
       // this.users.push(this.randomUser);
-      // console.log(this.users);
+      console.log(this.randomUser);
     })
   }
+
+  // formatDate(dateString) {
+  //   const date = new Date(dateString);
+  //   const day = date.getDate().toString().padStart(2, '0');
+  //   const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  //   const year = date.getFullYear().toString();
+  //   return `${day}/${month}/${year}`;
+  // }
+
+  
 }
