@@ -37,6 +37,8 @@ export class ProfileSummaryComponent  implements OnInit {
       const storedUser = localStorage.getItem('users'[0]);
       if (storedUser) {
       this.randomUser = JSON.parse(storedUser);
-    }})
+      console.log(this.randomUser);
+    }}
+    );
   }
 }
