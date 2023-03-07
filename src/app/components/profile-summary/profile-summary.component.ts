@@ -1,6 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import {createReducer, Store} from "@ngrx/store";
+import {appReducer, IUserState} from "../../store/reducer";
 
 @Component({
   selector: 'app-profile-summary',
@@ -13,7 +15,7 @@ export class ProfileSummaryComponent  implements OnInit {
   users: any = [];
   randomUser:any;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private store: Store<{ app: IUserState }>) {
     this.getRandomUser();
   }
 
@@ -27,6 +29,7 @@ export class ProfileSummaryComponent  implements OnInit {
   //   });
   //   // return this.users.push(this.firstUser);
   // }
+
 
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
