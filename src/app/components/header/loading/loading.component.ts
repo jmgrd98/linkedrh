@@ -16,7 +16,6 @@ export class LoadingComponent {
   constructor(
     private loadingCtrl: LoadingController,
     public apiService: ApiService,
-    public toast: ToastComponent,
     ) {}
 
     getRandomUser() {
@@ -41,6 +40,6 @@ export class LoadingComponent {
     }, loading.duration)
 
     this.getRandomUser();
-    this.toast.presentToast('bottom');
+
   }
 }
