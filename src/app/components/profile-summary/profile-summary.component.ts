@@ -42,18 +42,6 @@ export class ProfileSummaryComponent implements OnInit {
     });
   }
 
-  // getFirstUser(){
-  //
-  //   const storedUser = localStorage.getItem('firstUser');
-  //   if (storedUser) {
-  //     this.firstUser = JSON.parse(storedUser);
-  //     console.log(this.firstUser);
-  //   }
-  //   this.job = this.firstUser.sections[0].cardItems[0].data.jobName;
-  //   this.nome = this.firstUser.sections[0].cardItems[0].data.employeeName;
-  // }
-
-
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
         this.randomUser = user;
