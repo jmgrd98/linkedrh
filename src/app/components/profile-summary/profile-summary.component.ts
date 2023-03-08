@@ -20,16 +20,18 @@ export class ProfileSummaryComponent implements OnInit {
   lastName: any;
   sections: any = [];
   job: any;
-  shouldSetFirstUser: boolean = false;
+  @Output() shouldSetFirstUser: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.shouldGetFirstUser() ? this.setFirstUser() : this.getRandomUser();
+    // this.shouldGetFirstUser() ? this.setFirstUser() : this.getRandomUser();
+    this.setFirstUser();
+    this.getRandomUser();
   }
 
   shouldGetFirstUser(): boolean {
-    return this.shouldSetFirstUser;
+    return this.shouldSetFirstUser = !this.shouldSetFirstUser;
   }
 
   setFirstUser() {

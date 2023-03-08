@@ -1,10 +1,12 @@
 <ion-accordion-group>
   <ion-accordion *ngFor="let section of sections">
-    <ion-item slot="header" color="light">
+    <ion-item  slot="header" color="light">
       <ion-label>{{section.name}}</ion-label>
     </ion-item>
 
-    <div class="ion-padding" slot="content">
+    {{cardItems | json}}
+
+    <div *ngFor="let cardItem of cardItems" class="ion-padding" slot="content">
       <p>Admissão na empresa</p>
       <span>{{companyAdmissionDate}}</span>
       <p>Data de nascimento</p>
