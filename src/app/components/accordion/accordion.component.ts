@@ -13,6 +13,10 @@ export class AccordionComponent  implements OnInit {
   @Input() firstUser: any;
   users: any = [];
   sections: any = [];
+  companyAdmissionDate : any;
+  email: any;
+  birthDate: any;
+  phone: any;
 
 
   constructor(private apiService: ApiService) {}
@@ -20,13 +24,17 @@ export class AccordionComponent  implements OnInit {
 
   ngOnInit() {
     this.randomUser.dob.date = format(new Date(this.randomUser.dob.date), 'MM/dd/yyyy');
-    this.getFirstUser();
+    this.setFirstUser();
   }
 
-  getFirstUser() {
+  setFirstUser() {
     this.apiService.getFirstUser().subscribe(user => {
       this.firstUser = user;
       this.sections = this.firstUser.sections;
+      this.birthDate = this.firstUser.sections[0].cardItems[0].data.birthDate;
+      this.phone = this.firstUser.sections[0].cardItems[0].data.cellphoneNumber;
+      this.email = this.firstUser.sections[0].cardItems[0].data.email;
+      this.companyAdmissionDate = this.firstUser.sections[0].cardItems[0].data.companyAdmissionDate;
     });
   }
 
