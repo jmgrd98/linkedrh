@@ -7,7 +7,7 @@
       <p>Admissão na empresa</p>
       <span>{{companyAdmissionDate}}</span>
       <p>Data de nascimento</p>
-      <span>{{birthDate || `${{randomUser.dob.date}} ({{randomUser.dob.age}} anos)`</span>
+      <span>{{birthDate || $`{{randomUser.dob.date}} + ({{randomUser.dob.age}} anos)`}}</span>
       <p>Celular</p>
       <span>{{phone || randomUser.phone}}</span>
       <p>E-mail</p>
