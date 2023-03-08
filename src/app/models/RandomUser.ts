@@ -1,7 +1,8 @@
 export interface RandomUser{
   firstName: string;
   lastName: string;
-  job: string;
   phone: string;
   email: string;
+  age: number;
+  dateOfBirth: string;
 }
