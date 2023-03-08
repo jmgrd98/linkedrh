@@ -48,11 +48,6 @@ export class ProfileSummaryComponent implements OnInit {
         this.users.push(this.randomUser);
         localStorage.setItem('users', JSON.stringify(this.users));
 
-        const storedUser = localStorage.getItem('users'[0]);
-        if (storedUser) {
-          this.randomUser = JSON.parse(storedUser);
-          console.log(this.randomUser);
-        }
       }
     );
   }
