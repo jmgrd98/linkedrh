@@ -28,7 +28,7 @@ export class ProfileSummaryComponent implements OnInit {
   ngOnInit() {
     this.setFirstUser();
     this.getRandomUser();
-    this.getFirstUser();
+    // this.getFirstUser();
   }
 
   setFirstUser() {
@@ -36,19 +36,22 @@ export class ProfileSummaryComponent implements OnInit {
       this.firstUser = user;
       this.sections = this.firstUser.sections;
       localStorage.setItem('firstUser', JSON.stringify(this.firstUser));
+
+      this.job = this.firstUser.sections[0].cardItems[0].data.jobName;
+      this.nome = this.firstUser.sections[0].cardItems[0].data.employeeName;
     });
   }
 
-  getFirstUser(){
-
-    const storedUser = localStorage.getItem('firstUser');
-    if (storedUser) {
-      this.firstUser = JSON.parse(storedUser);
-      console.log(this.firstUser);
-    }
-    this.job = this.firstUser.sections[0].cardItems[0].data.jobName;
-    this.nome = this.firstUser.sections[0].cardItems[0].data.employeeName;
-  }
+  // getFirstUser(){
+  //
+  //   const storedUser = localStorage.getItem('firstUser');
+  //   if (storedUser) {
+  //     this.firstUser = JSON.parse(storedUser);
+  //     console.log(this.firstUser);
+  //   }
+  //   this.job = this.firstUser.sections[0].cardItems[0].data.jobName;
+  //   this.nome = this.firstUser.sections[0].cardItems[0].data.employeeName;
+  // }
 
 
   getRandomUser() {
