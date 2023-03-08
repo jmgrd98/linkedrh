@@ -4,9 +4,7 @@
       <ion-label>{{section.name}}</ion-label>
     </ion-item>
 
-    {{cardItems | json}}
-
-    <div *ngFor="let cardItem of cardItems" class="ion-padding" slot="content">
+    <div class="ion-padding" slot="content">
       <p>Admissão na empresa</p>
       <span>{{companyAdmissionDate}}</span>
       <p>Data de nascimento</p>
