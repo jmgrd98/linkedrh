@@ -10,9 +10,10 @@ import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 export class AccordionComponent  implements OnInit {
 
   @Input() randomUser:any;
-  firstUser: any;
+  @Input() firstUser: any;
   users: any = [];
   sections: any = [];
+
 
   constructor(private apiService: ApiService) {}
 
