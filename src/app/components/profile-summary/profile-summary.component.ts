@@ -20,12 +20,16 @@ export class ProfileSummaryComponent implements OnInit {
   lastName: any;
   sections: any = [];
   job: any;
+  shouldSetFirstUser: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.setFirstUser();
-    this.getRandomUser();
+    this.shouldGetFirstUser() ? this.setFirstUser() : this.getRandomUser();
+  }
+
+  shouldGetFirstUser(): boolean {
+    return this.shouldSetFirstUser;
   }
 
   setFirstUser() {
@@ -41,13 +45,10 @@ export class ProfileSummaryComponent implements OnInit {
   getRandomUser() {
     this.apiService.getRandomUserObject().subscribe(user => {
         this.randomUser = user;
-        console.log(this.randomUser);
-        console.log(this.randomUser[0].name.first);
         this.firstName = this.randomUser[0].name.first;
         this.lastName = this.randomUser[0].name.last;
         this.users.push(this.randomUser);
         localStorage.setItem('users', JSON.stringify(this.users));
-
       }
     );
   }
