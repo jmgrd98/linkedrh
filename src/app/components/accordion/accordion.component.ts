@@ -1,6 +1,7 @@
 import { ApiService } from './../../services/api.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { format, formatDistance, formatRelative, subDays } from 'date-fns';
+import {RandomUser} from "../../models/RandomUser";
 
 @Component({
   selector: 'app-accordion',
@@ -25,7 +26,7 @@ export class AccordionComponent  implements OnInit {
 
   ngOnInit() {
     this.randomUser.dob.date = format(new Date(this.randomUser.dob.date), 'MM/dd/yyyy');
-    // this.setFirstUser();
+    this.setFirstUser();
   }
 
   setFirstUser() {

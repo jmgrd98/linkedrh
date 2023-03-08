@@ -21,9 +21,7 @@ export class ProfileSummaryComponent implements OnInit {
   sections: any = [];
   job: any;
 
-  constructor(private apiService: ApiService, private store: Store<{ app: IUserState }>) {
-
-  }
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.setFirstUser();
