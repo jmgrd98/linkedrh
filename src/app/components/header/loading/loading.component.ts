@@ -40,6 +40,7 @@ export class LoadingComponent {
       }
     }, loading.duration)
 
+    localStorage.removeItem('firstUser');
     this.getRandomUser();
 
   }

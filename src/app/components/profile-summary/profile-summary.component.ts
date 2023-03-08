@@ -16,7 +16,7 @@ export class ProfileSummaryComponent implements OnInit {
   users: any = [];
   firstUser: any;
   randomUser: any;
-  nome: any;
+  firstName: any;
   lastName: any;
   sections: any = [];
   job: any;
@@ -28,7 +28,6 @@ export class ProfileSummaryComponent implements OnInit {
   ngOnInit() {
     this.setFirstUser();
     this.getRandomUser();
-    // this.getFirstUser();
   }
 
   setFirstUser() {
@@ -36,9 +35,8 @@ export class ProfileSummaryComponent implements OnInit {
       this.firstUser = user;
       this.sections = this.firstUser.sections;
       localStorage.setItem('firstUser', JSON.stringify(this.firstUser));
-
       this.job = this.firstUser.sections[0].cardItems[0].data.jobName;
-      this.nome = this.firstUser.sections[0].cardItems[0].data.employeeName;
+      this.firstName = this.firstUser.sections[0].cardItems[0].data.employeeName;
     });
   }
 
@@ -47,7 +45,7 @@ export class ProfileSummaryComponent implements OnInit {
         this.randomUser = user;
         console.log(this.randomUser);
         console.log(this.randomUser[0].name.first);
-        // this.nome = this.randomUser[0].name.first;
+        this.firstName = this.randomUser[0].name.first;
         this.lastName = this.randomUser[0].name.last;
         this.users.push(this.randomUser);
         localStorage.setItem('users', JSON.stringify(this.users));
