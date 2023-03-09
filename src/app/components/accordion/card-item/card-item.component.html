@@ -1,0 +1,14 @@
+<ion-item *ngFor="let section of sections" slot="header" color="light">
+  <ion-label>{{section.name}}</ion-label>
+</ion-item>
+
+<div  class="ion-padding" slot="content">
+  <p>Admissão na empresa</p>
+  <span>{{cardItem0.companyAdmissionDate}}</span>
+  <p>Data de nascimento</p>
+  <span>{{cardItem0.birthDate || randomUser.dob.date + ' (' + randomUser.dob.age + ' anos)'}}</span>
+  <p>Celular</p>
+  <span>{{cardItem0.cellphoneNumber || randomUser.phone}}</span>
+  <p>E-mail</p>
+  <span>{{cardItem0.email || randomUser.email}}</span>
+</div>
