@@ -11,17 +11,17 @@ import {RandomUser} from "../../models/RandomUser";
 export class AccordionComponent  implements OnInit {
 
   @Input() randomUser:any;
-  // @Input() firstUser: any;
+  @Input() firstUser: any;
   @Input() shouldSetFirstUser : boolean = true;
   users: any = [];
   sections: any = [];
   cardItems: any = [];
-  cardItem0: object = {
-    companyAdmissionDate: this.firstUser.sections[0].cardItems[0].data,
-    email: any,
-    birthDate: any,
-    phone: any,
-  };
+  // cardItem0: object = {
+  //   companyAdmissionDate: this.firstUser.sections[0].cardItems[0].data,
+  //   email: any,
+  //   birthDate: any,
+  //   phone: any,
+  // };
   companyAdmissionDate : any;
   email: any;
   birthDate: any;
