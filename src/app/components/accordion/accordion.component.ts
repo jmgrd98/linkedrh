@@ -11,16 +11,17 @@ import {RandomUser} from "../../models/RandomUser";
 export class AccordionComponent  implements OnInit {
 
   @Input() randomUser:any;
-  @Input() firstUser: any;
+  // @Input() firstUser: any;
   @Input() shouldSetFirstUser : boolean = true;
   users: any = [];
   sections: any = [];
   cardItems: any = [];
-  cardItem0: any;
-  cardItem1: any;
-  cardItem2: any;
-  cardItem3: any;
-  cardItem4: any;
+  cardItem0: object = {
+    companyAdmissionDate: this.firstUser.sections[0].cardItems[0].data,
+    email: any,
+    birthDate: any,
+    phone: any,
+  };
   companyAdmissionDate : any;
   email: any;
   birthDate: any;
@@ -40,17 +41,12 @@ export class AccordionComponent  implements OnInit {
     this.apiService.getFirstUser().subscribe(user => {
       this.firstUser = user;
       this.sections = this.firstUser.sections;
-      this.cardItem0 = this.firstUser.sections[0].cardItems[0];
-      this.cardItem1 = this.firstUser.sections[1].cardItems[0];
-      this.cardItem2 = this.firstUser.sections[2].cardItems[0];
-      this.cardItem3 = this.firstUser.sections[3].cardItems[0];
-      this.cardItem4 = this.firstUser.sections[4].cardItems[0];
       this.birthDate = this.firstUser.sections[0].cardItems[0].data.birthDate;
       this.phone = this.firstUser.sections[0].cardItems[0].data.cellphoneNumber;
       this.email = this.firstUser.sections[0].cardItems[0].data.email;
       this.companyAdmissionDate = this.firstUser.sections[0].cardItems[0].data.companyAdmissionDate;
 
-      console.log(this.cardItem0.data)
+      // console.log(this.cardItem1.data)
     });
   }
 

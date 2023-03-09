@@ -4,18 +4,13 @@
       <ion-label>{{section.name}}</ion-label>
     </ion-item>
 
-    {{cardItems | json}}
+<!--    {{cardItems | json}}-->
 
-    <div *ngFor="let cardItem of cardItems" class="ion-padding" slot="content">
-      <p>Admissão na empresa</p>
-      <span>{{companyAdmissionDate}}</span>
-      <p>Data de nascimento</p>
-      <span>{{birthDate || randomUser.dob.date + ' (' + randomUser.dob.age + ' anos)'}}</span>
-      <p>Celular</p>
-      <span>{{phone || randomUser.phone}}</span>
-      <p>E-mail</p>
-      <span>{{email || randomUser.email}}</span>
-    </div>
+    <app-card-item></app-card-item>
+    <app-card-item1></app-card-item1>
+    <app-card-item2></app-card-item2>
+    <app-card-item3></app-card-item3>
+    <app-card-item4></app-card-item4>
 
   </ion-accordion>
 </ion-accordion-group>
